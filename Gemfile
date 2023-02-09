@@ -27,7 +27,15 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# To scrape API for data
 gem 'open-uri'
+
+# To save my private keys e.g. from Cloudinary
+gem "dotenv-rails", groups: [:development, :test]
+
+# Cloudinary gem to work with service
+gem "cloudinary"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

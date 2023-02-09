@@ -1,12 +1,7 @@
-<div class="d-flex navbar-lewagon align-items-center">
-  <div class="p-2 flex-grow-1"><i class="fa-solid fa-video"></i></div>
-  <div class="p-2"><%= link_to "My lists", lists_path %></div>
-  <div class="p-2"><%= link_to "New list", new_list_path %></div>
-</div>
-
 <div class="banner mb-3">
   <div class="container">
-    <h1>Save <strong>YOUR</strong> favorite <strong>movies</strong>!</h1>
+    <h1>Jan, create <strong>your</strong> favorite list!</h1>
+    <h2><span data-controller="typed-js"></span></h2>
     <p><%= link_to "Create list", new_list_path, class: "btn btn-info" %></p>
   </div>
 </div>
@@ -14,8 +9,12 @@
 <div class="cards mb-3">
   <% @lists.each do |list| %>
     <div class="card">
-      <%# This creates a url page from random movie in a list - ToDO: have if method if list is empty %>
-      <%= image_tag ("https://image.tmdb.org/t/p/original" + list.movies.sample["poster_url"]) %>
+      <%# This creates a url page from random movie in a list %>
+      <% if list.movies.empty? %>
+        <%= cl_image_tag("https://res.cloudinary.com/dtke2msby/image/upload/v1675976724/rails-watch-list/general_poster_llk8qq.jpg", class: "opacity-50") %>
+      <% else %>
+        <%= image_tag ("https://image.tmdb.org/t/p/original" + list.movies.sample["poster_url"]) %>
+      <% end %>
       <div class="card-body text-center">
         <h5 class="card-title"><%= link_to list.name, list_path(list), class: "btn btn-info rounded-3" %></h5>
         <%= link_to "Delete",
