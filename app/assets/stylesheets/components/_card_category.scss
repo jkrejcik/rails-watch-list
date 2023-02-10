@@ -1,14 +1,32 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 350px;
+  position: relative;
+
+  .card-category-name {
+    position: absolute;
+    height: 100px;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+  }
+
+  p {
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    padding: 10px;
+    background-color: $yellow;
+    border-radius: 5px;
+  }
+
+  h1 {
+    color: $white;
+    text-align: center;
+  }
 }

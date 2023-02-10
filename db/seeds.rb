@@ -10,6 +10,8 @@ require "open-uri"
 
 puts "Cleaning database"
 Movie.destroy_all
+Bookmark.destroy_all
+List.destroy_all
 
 puts "Scraping top 20 movies to db"
 

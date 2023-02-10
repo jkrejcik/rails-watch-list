@@ -1,11 +1,17 @@
-<h1>Create new bookmark</h1>
+<div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/1200×350/?movie)">
+  <div class="card-category-name"><h1>Create new bookmark</h1></div>
+</div>
+<div class="container mb-3">
+  <div class="bg-white rounded p-3 shadow">
+    <h3 class="text-center"><%= @list.name %></h3>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
+    <%= f.association :movie, prompt: "Select a movie" %>
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to "Back to list", list_path(@list), class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
+<div class="container">
 
-
-<div class="bg-white rounded p-3 shadow">
-  <h3>Add a movie to your <%= @list.name %> list</h3>
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
-  <%= f.association :movie, prompt: "Select a movie" %>
-  <%= f.submit class: "btn btn-flat" %>
-  <% end %>
 </div>

@@ -16,9 +16,10 @@
         <%= image_tag ("https://image.tmdb.org/t/p/original" + list.movies.sample["poster_url"]) %>
       <% end %>
       <div class="card-body text-center">
-        <h5 class="card-title"><%= link_to list.name, list_path(list), class: "btn btn-info rounded-3" %></h5>
+        <h5 class="card-title"><%= link_to list.name, list_path(list), class: "btn btn-primary rounded-3" %></h5>
         <%= link_to "Delete",
             list_path(list),
+            class: "btn btn-outline-danger",
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       </div>
     </div>
