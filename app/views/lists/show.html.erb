@@ -1,4 +1,4 @@
-<div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/1200×350/?movie)">
+<div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 350, crop: :fill %>')">
   <div class="card-category-name"><h1><%= @list.name %></h1></div>
   <div class="card-category-movie-count">
     <p>
@@ -20,14 +20,14 @@
 
 <div class="cards mb-3">
   <%# To display: bookmarked movies, overiview, picture %>
-  <% @list.movies.each do |movie| %>
-   <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+  <% @list.bookmarks.each do |bookmark| %>
+   <%# <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
     <div class="card mb-3">
       <%# This creates a url page from random movie in a list %>
-        <%= image_tag ("https://image.tmdb.org/t/p/original" + movie["poster_url"]) %>
-      <div class="card-body text-center">
-        <h5 class="card-title"><%= movie.title %>・<%= movie.rating %> ⭐️ </h5>
-        <p class="fw-lighter"><%= movie.overview %></p>
+        <%= image_tag ("https://image.tmdb.org/t/p/original" + bookmark.movie["poster_url"]) %>
+        <div class="card-body text-center">
+        <h5 class="card-title"><%= bookmark.movie.title %>・<%= bookmark.movie.rating %> ⭐️ </h5>
+        <p class="fw-lighter"><%= bookmark.movie.overview %></p>
         <p class="fst-italic fw-light"><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %></p>
 
         <%# To display: delete bookmark %>
@@ -40,3 +40,5 @@
     </div>
   <% end %>
 </div>
+
+<%# Reviews section comes here %>
